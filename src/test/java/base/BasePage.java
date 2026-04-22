@@ -79,7 +79,7 @@ public class BasePage {
 	    }
 	    pause();
 }
-  int delay = 500; // normal
+  int delay = 1000; // normal
   public void pause() {
 	    try {
 	        Thread.sleep(delay);
