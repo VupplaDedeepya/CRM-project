@@ -20,11 +20,12 @@ public class BaseTest {
         driver.get(ConfigReader.get("url"));
     }
 
-    @AfterClass
+  /*  @AfterClass
     public void tearDown() {
         if (driver != null) {
             driver.quit();
         }
     }
+    */
     
 }
