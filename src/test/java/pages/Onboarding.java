@@ -31,7 +31,9 @@ public class Onboarding extends BasePage{
     By connect_tools1 = By.xpath("//button[contains(text(),'Whatsapp')]");
     By connect_tools2 = By.xpath("//button[contains(text(),'Teams')]");
     By connect_tools3 = By.xpath("//button[contains(text(),'Docusign')]");
-    By skip_btn = By.xpath("//button[contains(text(),'Skip Now')]");
+    //By skip_btn = By.xpath("//button[contains(text(),'Skip Now')]");
+    By invite_mail = By.xpath("//input[@placeholder='Press Enter to add multiple emails']");
+    By invite_btn = By.xpath("//button[contains(text(),'Send Invite')]");
     //Action methods
     public void signup(String name,String mail,String pswd) throws InterruptedException {
     	click(signup_btn);
@@ -106,8 +108,9 @@ public class Onboarding extends BasePage{
 	   pause();
 	   click(next_btn);
 	   pause();
-	   click(skip_btn);
+       driver.findElement(invite_mail).sendKeys("sanjana@yopmail.com",Keys.ENTER);
 	   pause();
-	   
+	   click(invite_btn);
+	   pause();
    }
 }

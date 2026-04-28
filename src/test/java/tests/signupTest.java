@@ -9,9 +9,9 @@ public class signupTest extends BaseTest{
     @Test(priority=1)
     void signup_page() throws InterruptedException {
     	Onboarding ob = new Onboarding(driver);
-    	ob.signup("bhushan","bhushan@yopmail.com","Abcdef@12345");
-    	ob.enter_otp("bhushan@yopmail.com");
-    	ob.login("bhushan@yopmail.com","Abcdef@12345");
-    	ob.workspace("bizaquity");
+    	ob.signup("abhishek","abhishek@yopmail.com","Abcdef@12345");
+    	ob.enter_otp("abhishek@yopmail.com");
+    	ob.login("abhishek@yopmail.com","Abcdef@12345");
+    	ob.workspace("apptagram");
     }
 }
