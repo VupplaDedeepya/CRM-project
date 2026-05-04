@@ -19,9 +19,11 @@ public class NotesTest extends BaseTest{
   void note() throws InterruptedException {
 	  NotesPage np = new NotesPage(driver);
 	  np.selectLead();
-	  np.Add_note("Schedule a meeting with Lead");
-	  np.choose_alignment("Align Left");
-	  np.select_dateAndtime("25", "10","45", "AM");
-	  np.submit();
+	  np.note_tab();
+	  //np.Add_note("Schedule a meeting with Lead");
+	  //np.choose_alignment("Align Left");
+	  //np.select_dateAndtime("25", "10","45", "AM");
+	  //np.submit();
+	  np.edit_note();
   }
 }

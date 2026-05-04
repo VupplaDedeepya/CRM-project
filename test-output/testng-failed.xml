@@ -3,15 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.LeadFlowTest">
+      <class name="tests.NotesTest">
         <methods>
-          <include name="add_activities"/>
           <include name="setup"/>
-          <include name="adv_filters"/>
-          <include name="activities"/>
-          <include name="viewCreation"/>
+          <include name="login"/>
+          <include name="tearDown"/>
+          <include name="note"/>
         </methods>
-      </class> <!-- tests.LeadFlowTest -->
+      </class> <!-- tests.NotesTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
