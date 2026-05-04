@@ -38,6 +38,10 @@ public class ActivitiesPage extends BasePage{
      By tags_opt = By.xpath("//li[.//span[contains(text(),'Hot Leads')]]");
      By label = By.xpath("//label[contains(text(),'Deal Owner')]");
      By create_deal_btn = By.xpath("//button[.//div[contains(text(),'Create Deal')]]");
+     //Add contact locators
+     By Add_contact = By.xpath("//img[@alt='Add Contact']");
+     By label2 = By.xpath("//button[.//div[normalize-space()='Contact Information']]");
+     
      //reusable method
      public void select_from_dropdown(String label,String option) throws InterruptedException {
     	 click(By.xpath("//label[contains(text(),'"+label+"')]//following-sibling::div//div[contains(@class,'custom-react-select__control')]"));

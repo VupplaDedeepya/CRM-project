@@ -22,8 +22,13 @@ public class UpdateFromLeadCheckboxTest extends BaseTest {
    @Test(priority=2)
    void dropdowns() throws InterruptedException {
 	   UpdateParticularLeadPage uplp = new UpdateParticularLeadPage(driver);
+	   uplp.select_lead("LEAD-1042");
 	   uplp.leadStatusUpdateFromCheckbox();
+	   uplp.select_lead("LEAD-1042");
 	   uplp.leadOwnerUpdateFromCheckbox();
+	   uplp.select_lead("LEAD-1042");
 	   uplp.AddTagsFromCheckbox();
+	   uplp.select_lead("LEAD-1036");
+	   uplp.Delete_lead();
    }
 }
