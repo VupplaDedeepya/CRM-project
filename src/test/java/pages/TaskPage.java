@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import com.github.javafaker.Faker;
 
@@ -14,7 +15,7 @@ public class TaskPage extends BasePage{
 	   super(driver);
    }
    //locators
-   By Task_tab = By.xpath("//div[contains(@class,'cursor-pointer')]//span[normalize-space()='Task']");
+   By Task_tab = By.xpath("//button[contains(@class,'cursor-pointer')]//span[normalize-space()='Task']");
    By add_task = By.xpath("//button[normalize-space()='Add']");
    By task_name = By.xpath("//input[@id='task-title']");
    //By task_type_dd = By.xpath("//label[normalize-space()='Task Type']/following-sibling::div//div[contains(@class,'custom-react-select__control')]");
@@ -30,6 +31,16 @@ public class TaskPage extends BasePage{
    By contributors_opt = By.xpath("//span[normalize-space()='Saikumarballa']");
    By task_description = By.xpath("//textarea[@id='task-description']");
    By submit_btn = By.xpath("//button[normalize-space()='Submit']");
+   By edit_task_description_btn = By.xpath("//button[contains(@aria-label,'Edit task description')]");
+   By edit_task_text = By.xpath("//textarea[@placeholder='Enter description']");
+   By save_btn = By.xpath("//button[normalize-space()='Save']");
+   By task_heading = By.xpath("//div[normalize-space()='Status']");
+   By more_options_btn = By.xpath("(//button[.//img[@alt='More options']])[1]");
+   By delete_task = By.xpath("//button[normalize-space()='Delete Task']");
+   By sure_btn = By.xpath("//button[normalize-space()='Sure']");
+   By Add_contributors = By.xpath("//button[normalize-space()='Add Contributors']");
+   By contributor = By.xpath("//button[@title='saipavan']");
+   By Add_btn = By.xpath("//div[contains(@class,'justify-end')]//button[.//div[contains(.,'Add')]]");
    Faker faker = new Faker();
    //reusable method
    public void select_from_dropdown(String label,String option) throws InterruptedException {
@@ -42,10 +53,12 @@ public class TaskPage extends BasePage{
    	WebElement Lead = getLeadRowData("LEAD-0973","Avan");
    	Lead.click();
    	pause();
-   }	   
-   public void add_task() throws InterruptedException {
+   }	
+   public void task_tab() throws InterruptedException {
 	   click(Task_tab);
-	   pause();
+	   pause(); 
+   }
+   public void add_task() throws InterruptedException {
 	   click(add_task);
 	   pause();
 	   String taskName = faker.options().option(
@@ -85,5 +98,36 @@ public class TaskPage extends BasePage{
 	   pause();
 	   pause();
    }
-   
+   public void edit_task() throws InterruptedException {
+	   click(edit_task_description_btn);
+	   pause();
+	   type(edit_task_text," The meeting must schedule");
+	   click(save_btn);
+	   pause();
+	   pause();
+	   WebElement Task = driver.findElement(task_heading);
+	   Actions actions = new Actions(driver);
+	   actions.moveToElement(Task).perform();;
+	   click(more_options_btn);
+	   pause();
+	   click(Add_contributors);
+	   pause();
+	   click(contributor);
+	   pause();
+	   click(Add_btn);
+	   pause();
+	   pause();
+   }
+   public void delete_task() throws InterruptedException {
+	   WebElement Task = driver.findElement(task_heading);
+	   Actions actions = new Actions(driver);
+	   actions.moveToElement(Task).perform();;
+	   click(more_options_btn);
+	   pause();
+	   click(delete_task);
+	   pause();
+	   click(sure_btn);
+	   pause();
+	   pause();
+   }
 }

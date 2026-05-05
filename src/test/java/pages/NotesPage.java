@@ -36,10 +36,16 @@ public class NotesPage extends BasePage{
 	By save_btn = By.xpath("//button[normalize-space()='Save']");
 	By Add_comment = By.xpath("(//img[@alt='Add Comment'])[1]");
 	By text_box = By.xpath("//p[@data-placeholder='Add your comment...']");
-		
+	By more_actions_btn = By.xpath("(//button[.//img[@alt='More options']])[1]");
+	By delete_note = By.xpath("//button[.//span[normalize-space()='Delete Note']]");
+	By sure_btn = By.xpath("//button[.//div[normalize-space()='Sure']]");
+	By comment = By.xpath("//button[.//span[contains(.,'comment')]]");
+	By edit_comment = By.xpath("(//img[@alt='Edit' and @height='24'])[1]");
+	By comment_more_actions = By.xpath("(//button[.//img[@alt='More']])[1]");
+	By delete_comment = By.xpath("//button[.//span[normalize-space()='Delete']]");
     //Action methods
     public void selectLead() {
-    	WebElement Lead = getLeadRowData("LEAD-1026","surya");
+    	WebElement Lead = getLeadRowData("LEAD-1026","Mr surya");
     	Lead.click();
     	pause();
     }
@@ -84,12 +90,62 @@ public class NotesPage extends BasePage{
     	pause();
     	WebElement edit = wait.until(ExpectedConditions.visibilityOfElementLocated(note_data));
     	Actions actions = new Actions(driver);
-    	actions.moveToElement(edit);
+    	actions.moveToElement(edit).perform();;
     	click(edit_btn);
     	pause();
     	type(edit_txt," Need to follow up with it.");
     	pause();
     	click(save_btn);
+    	pause();
+    	pause();
+    }
+    public void add_comment() throws InterruptedException {
+    	//remove comments when run individually
+    	//click(note);
+    	//pause();
+    	click(Add_comment);
+    	pause();
+    	type(text_box,"Meeting scheduled this friday 6PM");
+    	pause();
+    	click(save_btn);
+    	pause();
+    	pause();
+    }
+    public void delete_note() throws InterruptedException {
+       	click(note);
+    	pause();
+    	WebElement Note = wait.until(ExpectedConditions.visibilityOfElementLocated(note_data));
+    	Actions actions = new Actions(driver);
+    	actions.moveToElement(Note).perform();;
+    	click(more_actions_btn);
+    	pause();
+    	click(delete_note);
+    	pause();
+    	click(sure_btn);
+    	pause();
+    	pause();
+    }
+    public void edit_comment() throws InterruptedException {
+    	click(note);
+    	pause();
+    	click(comment);
+    	pause();
+    	click(edit_comment);
+    	pause();
+    	type(edit_txt,".The meeting is via call");
+    	pause();
+    	click(save_btn);
+    }
+    public void delete_cmt() throws InterruptedException {
+    	click(note);
+    	pause();
+    	click(comment);
+    	pause();
+    	click(comment_more_actions);
+    	pause();
+    	click(delete_comment);
+    	pause();
+    	click(sure_btn);
     	pause();
     	pause();
     }

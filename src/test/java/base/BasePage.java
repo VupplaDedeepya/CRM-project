@@ -91,7 +91,7 @@ public class BasePage {
       WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
       By locator = By.xpath(
-          "//tr[.//span[contains(normalize-space(),'" + leadId + "')]]//span[contains(normalize-space(),'" + value + "')]"
+          "//tr[.//span[contains(normalize-space(),'"+leadId+"')]] //span[contains(@class,'text-gray-900') and normalize-space()='"+value+"']"
       );
 
       return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));

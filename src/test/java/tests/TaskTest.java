@@ -19,6 +19,9 @@ public class TaskTest extends BaseTest{
   void addTask() throws InterruptedException {
 	  TaskPage tp = new TaskPage(driver);
 	  tp.selectLead();
-	  tp.add_task();
+	  tp.task_tab();
+	 // tp.add_task();
+	  //tp.edit_task();
+	  tp.delete_task();
   }
 }
