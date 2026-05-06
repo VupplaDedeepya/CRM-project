@@ -26,6 +26,10 @@ public class DealViewPage extends BasePage{
     By value2 = By.xpath("//li//span[normalize-space()='Open']");
     By add_row = By.xpath("//button/img[@alt='Add filter']");
     By btn_create_view = By.xpath("//button[.//div[normalize-space()='Create View']]");
+    //edit view
+    By view = By.xpath("//span[.//span[normalize-space()='won deal']]");
+    By more_actions = By.xpath("//img[@alt='More options']");
+    By edit_view_btn = By.xpath("//img[@alt='Edit']");
     
     Faker faker = new Faker();
     //action methods
@@ -56,4 +60,5 @@ public class DealViewPage extends BasePage{
 	    pause();
 	    pause();
     }
+    
 }
