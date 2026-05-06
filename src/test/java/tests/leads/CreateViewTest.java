@@ -18,17 +18,17 @@ public class CreateViewTest extends BaseTest{
 		    cwp.ClickNext(); 
 		    System.out.println("successfully choosed workspace");
 	  }
-  @Test (priority=2 , dependsOnMethods = "login",enabled=true)
+  @Test (priority=2 , dependsOnMethods = "login",enabled=false)
   void create_view() throws InterruptedException {
 	  HomePage hp = new HomePage(driver);
 	  hp.create_view();
 	 // hp.Handle_AddView("meghana's vew");
 	  //Thread.sleep(5000);
   }
-  @Test(priority=3, enabled=false)
+  @Test(priority=3, enabled=true)
   void editView() throws InterruptedException{
 	  HomePage hp = new HomePage(driver);
-	  hp.edit_view();
+	  hp.delete_view();
   }
   
 }

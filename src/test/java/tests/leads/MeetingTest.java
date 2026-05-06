@@ -20,7 +20,9 @@ public class MeetingTest extends BaseTest{
 	  MeetingPage mp = new MeetingPage(driver);
 	  mp.selectLead();
 	  mp.navigate_meetingTab();
-	  mp.Log_meeting();
+	 // mp.Log_meeting();
 	//  mp.Add_Meeting();
+	 // mp.edit_meeting("05/12/2026");
+	  mp.delete_meeting();
   }
 }

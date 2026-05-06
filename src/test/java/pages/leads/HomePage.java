@@ -39,6 +39,9 @@ public class HomePage extends BasePage {
   By select_column = By.xpath("//div[contains(@class,'cursor-pointer')][.//div[normalize-space()='Lead ID']]");
   By save_changes_btn = By.xpath("//button//div[normalize-space()='Save Changes']");
   By Toast_message = By.xpath("//p[contains(text(),'already exists')]");
+  By del_view = By.xpath("//span[.//span[normalize-space()='kishore view']]");
+  By delete_view = By.xpath("//img[@alt='Delete']//parent::button");
+  By delete_btn = By.xpath("//button[.//div[normalize-space()='Delete']]");
   Faker faker = new Faker();
   public void Handle_AddView(String name) throws InterruptedException {
 	    wait.until(ExpectedConditions.elementToBeClickable(add_view)).click();
@@ -101,6 +104,19 @@ public class HomePage extends BasePage {
 	   click(select_column);
 	   driver.findElement(By.xpath("//h2[text()='Edit View']")).click();
 	   click(save_changes_btn);
+	   pause();
+   }
+   public void delete_view() throws InterruptedException {
+	   //the view name must be changed in the path of del_view after every run
+	   wait.until(ExpectedConditions.visibilityOfElementLocated(del_view));
+	   Actions actions = new Actions(driver);
+	   actions.moveToElement(driver.findElement(del_view)).perform();
+	   click(view_more_btn);
+	   pause();
+	   click(delete_view);
+	   pause();
+	   click(delete_btn);
+	   pause();
 	   pause();
    }
 }

@@ -3,15 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.DealsFiltersTest">
+      <class name="tests.deals.DealsViewTest">
         <methods>
           <include name="setup"/>
           <include name="tearDown"/>
-          <include name="close_date_filter"/>
-          <include name="deal_status_filter"/>
-          <include name="created_date_filetr"/>
+          <include name="create_view"/>
         </methods>
-      </class> <!-- tests.DealsFiltersTest -->
+      </class> <!-- tests.deals.DealsViewTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -12,6 +12,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -49,6 +50,19 @@ public class MeetingPage extends BasePage{
   By time = By.xpath("//button[normalize-space()='06:00 PM']");
   By description = By.xpath("//textarea[@placeholder='Add event description']");
   By scheduleMeeting_btn = By.xpath("//button[.//div[normalize-space()='Schedule Meeting']]");
+  //edit meeting
+  By meeting = By.xpath("(//div[contains(@class,'group/meeting')])[1]");
+  By more_actions_btn = By.xpath("(//div[contains(@class,'group/menu')]//button)[1]");
+  By edit_btn = By.xpath("(//button[contains(text(),'Edit')])[1]");
+  By edit_meeting_description = By.xpath("//textarea[@placeholder='Enter meeting description...']");
+  By schedule_date = By.xpath("//input[@placeholder='MM/DD/YYYY']");
+  By edit_start_time = By.xpath("(//input[@placeholder='Time']//following-sibling::button)[1]");
+  By edit_time = By.xpath("//button[normalize-space()='6:00 PM']");
+  By duration = By.xpath("//input[@placeholder='0']");
+  By tick_mark = By.xpath("(//button[.//*[name()='svg']])[6]");
+  //delete meeting
+  By delete_btn = By.xpath("(//button[normalize-space()='Delete'])[1]");
+  By confirm_btn = By.xpath("//button[.//div[normalize-space()='Delete Meeting']]");
   //reusable methods
   public void select_from_dropdown(String label,String option){
 	  WebElement dropdown = new WebDriverWait(driver,Duration.ofSeconds(10)).
@@ -72,6 +86,7 @@ public class MeetingPage extends BasePage{
   }
   public void navigate_meetingTab() throws InterruptedException {
 	  wait.until(ExpectedConditions.elementToBeClickable(Meetings_tab)).click();
+	  pause();
   }
   public void Log_meeting() throws InterruptedException {
 	  click(Log_meeting_btn);
@@ -146,5 +161,44 @@ public class MeetingPage extends BasePage{
 	  click(scheduleMeeting_btn);
   	pause();
   	pause();
+  }
+  public void edit_meeting(String date) throws InterruptedException {
+	  click(meeting);
+	  pause();
+	  WebElement more = driver.findElement(more_actions_btn);
+	  Actions actions = new Actions(driver);
+	  actions.moveToElement(more).perform();
+	  click(edit_btn);
+	  pause();
+	  type(edit_meeting_description," This is for sample test");
+	  pause();
+	  driver.findElement(schedule_date).sendKeys(Keys.CONTROL+"a");
+	  driver.findElement(schedule_date).sendKeys(Keys.DELETE);
+	  pause();
+	  type(schedule_date,date);
+	  pause();
+	  click(edit_start_time);
+	  pause();
+	  click(edit_time);
+	  pause();
+	  driver.findElement(duration).sendKeys(Keys.CONTROL+"a");
+	  driver.findElement(duration).sendKeys(Keys.DELETE);
+	  pause();
+	  type(duration,"30");
+	  click(tick_mark);
+	  pause();
+	  pause();
+  }
+  public void delete_meeting() throws InterruptedException {
+	  click(meeting);
+	  pause();
+	  WebElement more = driver.findElement(more_actions_btn);
+	  Actions actions = new Actions(driver);
+	  actions.moveToElement(more).perform();
+	  click(delete_btn);
+	  pause();
+	  click(confirm_btn);
+	  pause();
+	  pause();
   }
 }
