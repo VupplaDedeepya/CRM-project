@@ -8,7 +8,7 @@ import pages.userOnboarding.ForgotPasswordPage;
 public class ForgotPswdTest extends BaseTest{
 
 	@Test(priority=1)
-	void forgot_pswd() throws InterruptedException {
+	public void forgot_pswd() throws InterruptedException {
 		ForgotPasswordPage fpp = new ForgotPasswordPage(driver);
 		fpp.click_forgot_pswd("dedeepya@yopmail.com");
 		fpp.enter_otp("dedeepya@yopmail.com");

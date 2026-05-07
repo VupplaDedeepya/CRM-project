@@ -9,7 +9,7 @@ import pages.userOnboarding.chooseWorkPlacePage;
 
 public class LeadDetailTest extends BaseTest{
 	@Test(priority=1)
-	void login() throws InterruptedException {
+	public void login() throws InterruptedException {
 		 LoginPage lp = new LoginPage(driver);
 		 lp.login();
 		 System.out.println("login successful");
@@ -19,7 +19,7 @@ public class LeadDetailTest extends BaseTest{
 	    System.out.println("successfully choosed workspace");
 	}
 	@Test(priority=2,dependsOnMethods = "login")
-	void edit_profile_info() throws InterruptedException {
+	public void edit_profile_info() throws InterruptedException {
 		/*LeadDetailPage ldp = new LeadDetailPage(driver);
 		ldp.selectLead();
 		ldp.profile_info();

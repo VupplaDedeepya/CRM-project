@@ -50,7 +50,7 @@ public class TaskPage extends BasePage{
    }
    //actions method
    public void selectLead() {
-   	WebElement Lead = getLeadRowData("LEAD-0973","Avan");
+   	WebElement Lead = getLeadRowData("LEAD-3939","Ms Schulist");
    	Lead.click();
    	pause();
    }	

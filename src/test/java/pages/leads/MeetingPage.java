@@ -80,7 +80,7 @@ public class MeetingPage extends BasePage{
   }
   //Action methods
   public void selectLead() {
-  	WebElement Lead = getLeadRowData("LEAD-0973","Avan");
+  	WebElement Lead = getLeadRowData("LEAD-1026","Mr surya");
   	wait.until(ExpectedConditions.elementToBeClickable(Lead)).click();
   	pause();
   }

@@ -22,7 +22,7 @@ public class HomePage extends BasePage {
   //locators
   By create_lead_button = By.xpath("//button[.//div[normalize-space()='Create Lead']]");
   By add_view = By.xpath("//div[@id='add-view-button']");
-  By view_name = By.xpath("//input[@id='viewName' and @placeholder='Enter view name']");
+  By view_name = By.xpath("//label[normalize-space()='View Name']//following-sibling::input");
   By defaultview_checkbox = By.xpath("//label[@for='isDefaultView']");
   By sel_filter = By.xpath("//div[normalize-space()='Select filter']");
   By sel_condition = By.xpath("//div[normalize-space()='Select condition']");
@@ -77,21 +77,26 @@ public class HomePage extends BasePage {
             pause();
         }
   public void create_view() throws InterruptedException {
-	    wait.until(ExpectedConditions.elementToBeClickable(add_view)).click();
-	    type(view_name,faker.name().lastName()+"'s view");
-	       //click(defaultview_checkbox);
-		    SelectFromFilter(sel_filter,"Source");
-		    SelectFromFilter(sel_condition,"equals");
-		    click(sel_value);
-		    click(value);
-	    	click(add_row);
-		    SelectFromFilter(sel_filter,"Status");
-		    SelectFromFilter(sel_condition,"equals");
-		    click(sel_value);
-		    click(value2);
-		    driver.findElement(By.tagName("body")).click();
-		    click(btn_create_view);
-          pause();
+	   	click(add_view);
+    	pause();
+    	String name = faker.name().lastName();
+    	type(view_name,name+"'s view");
+    	pause();
+	    SelectFromFilter(sel_filter,"Source");
+	    SelectFromFilter(sel_condition,"equals");
+	    click(sel_value);
+	    click(value);
+	    driver.findElement(By.xpath("//body")).click();
+	    click(add_row);
+	    SelectFromFilter(sel_filter,"Status");
+	    SelectFromFilter(sel_condition,"equals");
+	    click(sel_value);
+	    click(value2);
+	    driver.findElement(By.tagName("body")).click();
+	    pause();
+	    click(btn_create_view);
+	    pause();
+	    pause();
   }
 
    public void edit_view() throws InterruptedException {

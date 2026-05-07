@@ -9,7 +9,7 @@ import pages.userOnboarding.chooseWorkPlacePage;
 
 public class UpdateFromLeadCheckboxTest extends BaseTest {
 	@Test(priority=1)
-	void login() throws InterruptedException {
+	public void login() throws InterruptedException {
 		 LoginPage lp = new LoginPage(driver);
 		 lp.login();
 		 System.out.println("login successful");
@@ -19,7 +19,7 @@ public class UpdateFromLeadCheckboxTest extends BaseTest {
 	    System.out.println("successfully choosed workspace");
 	}
    @Test(priority=2)
-   void dropdowns() throws InterruptedException {
+   public void dropdowns() throws InterruptedException {
 	   UpdateParticularLeadPage uplp = new UpdateParticularLeadPage(driver);
 	   uplp.select_lead("LEAD-1042");
 	   uplp.leadStatusUpdateFromCheckbox();

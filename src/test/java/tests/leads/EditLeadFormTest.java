@@ -9,14 +9,14 @@ import pages.userOnboarding.chooseWorkPlacePage;
 
 public class EditLeadFormTest extends BaseTest{
   @Test(priority=1)
-  void login() throws InterruptedException {
+  public void login() throws InterruptedException {
 	  LoginPage lp = new LoginPage(driver);
 	  lp.login();
 	  chooseWorkPlacePage cws = new chooseWorkPlacePage(driver);
 	  cws.ClickNext();
   }
   @Test (priority=2,dependsOnMethods="login")
-  void editform() throws InterruptedException {
+  public void editform() throws InterruptedException {
 	  EditLeadPage elp = new EditLeadPage(driver);
 	  elp.chooserow();
 	  elp.basicDetails();

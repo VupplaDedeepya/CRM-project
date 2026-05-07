@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [sanity suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="sanity tests(failed)">
+    <groups>
+      <run>
+        <include name="sanity"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="tests.leads.MeetingTest">
+        <methods>
+          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="addMeeting"/>
+        </methods>
+      </class> <!-- tests.leads.MeetingTest -->
+      <class name="tests.leads.EmailTest">
+        <methods>
+          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="email"/>
+        </methods>
+      </class> <!-- tests.leads.EmailTest -->
+      <class name="tests.leads.CreateViewTest">
+        <methods>
+          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="create_view"/>
+        </methods>
+      </class> <!-- tests.leads.CreateViewTest -->
+    </classes>
+  </test> <!-- sanity tests(failed) -->
+</suite> <!-- Failed suite [sanity suite] -->

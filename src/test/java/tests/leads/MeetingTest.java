@@ -8,21 +8,23 @@ import pages.userOnboarding.LoginPage;
 import pages.userOnboarding.chooseWorkPlacePage;
 
 public class MeetingTest extends BaseTest{
-  @Test(priority=1)
-  void login() throws InterruptedException{
+
+  public void login() throws InterruptedException{
 	  LoginPage lp = new LoginPage(driver);
 	  lp.login();
 	  chooseWorkPlacePage cws = new chooseWorkPlacePage(driver);
 	  cws.ClickNext();
   }
-  @Test(dependsOnMethods="login")
-  void logMeeting() throws InterruptedException {
+  @Test(priority=1,groups= {"sanity"})
+  public void addMeeting() throws InterruptedException {
+	  login();
 	  MeetingPage mp = new MeetingPage(driver);
 	  mp.selectLead();
 	  mp.navigate_meetingTab();
-	 // mp.Log_meeting();
-	//  mp.Add_Meeting();
+	  mp.Add_Meeting();
+	  //mp.Log_meeting();
 	 // mp.edit_meeting("05/12/2026");
-	  mp.delete_meeting();
+	  //mp.delete_meeting();
   }
+ 
 }

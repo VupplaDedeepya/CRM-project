@@ -2,6 +2,7 @@ package tests.leads;
 
 import org.testng.annotations.Test;
 
+
 import base.BaseTest;
 import pages.leads.LeadFormPage;
 import pages.userOnboarding.LoginPage;
@@ -19,9 +20,10 @@ public class CreateLeadTest extends BaseTest {
         cwp.ClickNext();
         System.out.println("workspace selected");
     }
+    
 
     // 🔥 SCENARIO 1: Only required fields
-    @Test(priority = 1, groups = {"sanity"})
+    @Test(priority = 1,groups= {"sanity"})
     public void createLead_WithOnlyRequiredFields() throws InterruptedException {
 
         doLogin();
@@ -35,7 +37,7 @@ public class CreateLeadTest extends BaseTest {
     }
 
     // 🔥 SCENARIO 2: Full form submission
-    @Test(priority = 2, groups = {"regression"})
+    @Test(priority = 2,groups= {"regression"})
     public void createLead_WithAllDetails() throws InterruptedException {
 
 

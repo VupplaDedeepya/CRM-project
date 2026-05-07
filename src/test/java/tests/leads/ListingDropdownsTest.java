@@ -9,7 +9,7 @@ import pages.userOnboarding.chooseWorkPlacePage;
 
 public class ListingDropdownsTest extends BaseTest {
 	@Test(priority=1)
-	void login() throws InterruptedException {
+	public void login() throws InterruptedException {
 		 LoginPage lp = new LoginPage(driver);
 		 lp.login();
 		 System.out.println("login successful");
@@ -19,7 +19,7 @@ public class ListingDropdownsTest extends BaseTest {
 	    System.out.println("successfully choosed workspace");
 	}
    @Test(priority=2)
-   void dropdowns() throws InterruptedException {
+   public void dropdowns() throws InterruptedException {
 	   ListingDetailsUpdatePage ldup = new ListingDetailsUpdatePage(driver);
 	   ldup.changeStatusFromListing();
 	   ldup.textChanges();

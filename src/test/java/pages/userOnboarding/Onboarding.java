@@ -72,8 +72,8 @@ public class Onboarding extends BasePage{
            pause();
 
     }
-    LoginPage lp = new LoginPage(driver);
     public void login(String mail,String pswd) throws InterruptedException {
+    	 LoginPage lp = new LoginPage(driver);
     	type(lp.email,mail);
     	pause();
     	type(lp.password,pswd);
