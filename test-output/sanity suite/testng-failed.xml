@@ -8,27 +8,38 @@
       </run>
     </groups>
     <classes>
-      <class name="tests.leads.MeetingTest">
-        <methods>
-          <include name="setup"/>
-          <include name="tearDown"/>
-          <include name="addMeeting"/>
-        </methods>
-      </class> <!-- tests.leads.MeetingTest -->
       <class name="tests.leads.EmailTest">
         <methods>
           <include name="setup"/>
           <include name="tearDown"/>
           <include name="email"/>
+          <include name="sendReport"/>
         </methods>
       </class> <!-- tests.leads.EmailTest -->
-      <class name="tests.leads.CreateViewTest">
+      <class name="tests.leads.MeetingTest">
         <methods>
           <include name="setup"/>
           <include name="tearDown"/>
-          <include name="create_view"/>
+          <include name="addMeeting"/>
+          <include name="sendReport"/>
         </methods>
-      </class> <!-- tests.leads.CreateViewTest -->
+      </class> <!-- tests.leads.MeetingTest -->
+      <class name="tests.leads.NotesTest">
+        <methods>
+          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="sendReport"/>
+          <include name="note"/>
+        </methods>
+      </class> <!-- tests.leads.NotesTest -->
+      <class name="tests.leads.TaskTest">
+        <methods>
+          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="addTask"/>
+          <include name="sendReport"/>
+        </methods>
+      </class> <!-- tests.leads.TaskTest -->
     </classes>
   </test> <!-- sanity tests(failed) -->
 </suite> <!-- Failed suite [sanity suite] -->

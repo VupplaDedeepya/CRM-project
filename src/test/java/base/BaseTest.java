@@ -4,9 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 
 import utils.ConfigReader;
+import utils.SendMail;
 
 public class BaseTest {
     protected WebDriver driver;
@@ -20,13 +22,19 @@ public class BaseTest {
      //   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get(ConfigReader.get("url"));	
     }
-
+   /*
     @AfterClass(alwaysRun = true)
     public void tearDown() {
         if (driver != null) {
             driver.quit();
         }
     }
-    
+   */
+    @AfterSuite(alwaysRun = true)
+    public void sendReport() throws Exception {
+
+        SendMail.sendEmail();
+        
+    }
     
 }

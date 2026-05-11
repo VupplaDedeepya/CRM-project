@@ -30,7 +30,7 @@ public class EmailPage extends BasePage{
      
      //action methods
      public void selectLead() {
-     	WebElement Lead = getLeadRowData("LEAD-1026","Mr surya");
+     	WebElement Lead = getLeadRowData("LEAD-3939","Ms Schulist");
      	Lead.click();
      	pause();
      }

@@ -94,6 +94,10 @@ public class HomePage extends BasePage {
 	    click(value2);
 	    driver.findElement(By.tagName("body")).click();
 	    pause();
+	    String val = driver.findElement(view_name).getAttribute("value");
+	    if( val.isEmpty()) {
+	    	type(view_name,name+"'s view");
+	    }
 	    click(btn_create_view);
 	    pause();
 	    pause();
