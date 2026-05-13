@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import com.github.javafaker.Faker;
@@ -47,6 +48,8 @@ public class EmailPage extends BasePage{
    By schedule_suffix = By.xpath("//button[normalize-space()='PM']");
    By apply_btn = By.xpath("//button[.//div[normalize-space()='Apply']]");
    By schedule_btn = By.xpath("//button[.//div[normalize-space()='Schedule']]");
+   By details_container = By.xpath("//h3[normalize-space()='Deal Details']//parent::div");
+   By mail_container = By.xpath("//div[@class='space-y-0']");
    Faker faker = new Faker();
    //action methods
    public void deals_tab() throws InterruptedException {
@@ -59,17 +62,19 @@ public class EmailPage extends BasePage{
   	   	pause();
   	   }
    public void email_tab() throws InterruptedException {
+	 WebElement details = wait.until(ExpectedConditions.visibilityOfElementLocated(details_container));
   	 click(email_tab);
   	 pause();
    }
    public void compose_email() throws InterruptedException {
+	   WebElement mail = wait.until(ExpectedConditions.visibilityOfElementLocated(mail_container));
 	   click(compose_btn);
 	   click(followup_dd);
 	   click(followup_opt);
 	   click(date_time_dd);
 	   
-	   List<WebElement> selects =
-			   driver.findElements(By.xpath("//span[normalize-space()='Time:']/parent::div//select"));
+	   List<WebElement> selects = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//span[normalize-space()='Time:']/parent::div//select")));
+			  
 	   Select hrs = new Select(selects.get(0));
 	   hrs.selectByVisibleText("11");
 

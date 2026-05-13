@@ -9,7 +9,7 @@ import pages.userOnboarding.LoginPage;
 import pages.userOnboarding.chooseWorkPlacePage;
 
 public class CreateLeadTest extends BaseTest {
-
+  // @Test(priority=1,description="login")
     // Common login step
     public void doLogin() throws InterruptedException {
         LoginPage lp = new LoginPage(driver);
@@ -23,10 +23,10 @@ public class CreateLeadTest extends BaseTest {
     
 
     // 🔥 SCENARIO 1: Only required fields
-    @Test(priority = 1,groups= {"sanity"})
+    @Test(priority = 2,groups= {"sanity"})
     public void createLead_WithOnlyRequiredFields() throws InterruptedException {
 
-        doLogin();
+       doLogin();
 
         LeadFormPage lead = new LeadFormPage(driver);
 
@@ -37,7 +37,7 @@ public class CreateLeadTest extends BaseTest {
     }
 
     // 🔥 SCENARIO 2: Full form submission
-    @Test(priority = 2,groups= {"regression"})
+    @Test(priority = 3,groups= {"regression"})
     public void createLead_WithAllDetails() throws InterruptedException {
 
 

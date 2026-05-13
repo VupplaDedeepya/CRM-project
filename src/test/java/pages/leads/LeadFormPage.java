@@ -1,6 +1,7 @@
 package pages.leads;
 
 import java.time.Duration;
+
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -75,9 +76,9 @@ public class LeadFormPage extends BasePage{
   }
 
   //action methods
-  HomePage hp = new HomePage(driver);
 
   public void ClickCreateLead() throws InterruptedException {
+	  HomePage hp = new HomePage(driver);
       click(hp.create_lead_button);
       wait.until(ExpectedConditions.visibilityOfElementLocated(label));
       pause();
@@ -238,6 +239,7 @@ public class LeadFormPage extends BasePage{
 
   // Scenario 2: Full form submission
   public void submitWithAllDetails() throws InterruptedException {
+	  HomePage hp = new HomePage(driver);
 	  wait.until(ExpectedConditions.elementToBeClickable(hp.create_lead_button));
 	  ClickCreateLead();
       basicDetails();

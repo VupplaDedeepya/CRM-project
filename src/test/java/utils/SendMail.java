@@ -13,78 +13,148 @@ public class SendMail {
 
     public static void sendEmail() throws Exception {
 
-    	String from =
-    	        ConfigReader.get("email.username");
+        String from =
+                ConfigReader.get("email.username");
 
-    	String password =
-    	        ConfigReader.get("email.password");
+        String password =
+                ConfigReader.get("email.password");
 
-    	String to =
-    	        ConfigReader.get("email.to");
+        String to =
+                ConfigReader.get("email.to");
 
-        // Report Path
-        String reportPath =
+        // HTML Report Path
+        String htmlReportPath =
                 System.getProperty("user.dir")
                 + "\\target\\surefire-reports\\emailable-report.html";
-        System.out.println(reportPath);
+
+        // Excel Report Path
+        String excelReportPath =
+                System.getProperty("user.dir")
+                + "\\Reports\\SanityReport.xlsx";
+
+        System.out.println("HTML Report : "
+                + htmlReportPath);
+
+        System.out.println("Excel Report : "
+                + excelReportPath);
 
         Properties props = new Properties();
 
         props.put("mail.smtp.auth", "true");
+
         props.put("mail.smtp.starttls.enable", "true");
+
         props.put("mail.smtp.host", "smtp.gmail.com");
+
         props.put("mail.smtp.port", "587");
 
-        Session session = Session.getInstance(props,
+        Session session = Session.getInstance(
 
-            new Authenticator() {
+                props,
 
-                protected PasswordAuthentication
-                getPasswordAuthentication() {
+                new Authenticator() {
 
-                    return new PasswordAuthentication(from, password);
-                }
-            });
+                    protected PasswordAuthentication
+                    getPasswordAuthentication() {
 
-        Message message = new MimeMessage(session);
+                        return new PasswordAuthentication(
+                                from,
+                                password);
+                    }
+                });
 
-        message.setFrom(new InternetAddress(from));
+        Message message =
+                new MimeMessage(session);
+
+        message.setFrom(
+                new InternetAddress(from));
 
         message.setRecipients(
                 Message.RecipientType.TO,
+
                 InternetAddress.parse(to));
 
-        message.setSubject("Automation Execution Report");
+        message.setSubject(
+                "Automation Execution Report");
 
+        // =========================
         // Email Body
-        BodyPart messageBodyPart = new MimeBodyPart();
+        // =========================
+
+        BodyPart messageBodyPart =
+                new MimeBodyPart();
 
         messageBodyPart.setText(
-                "Please find attached automation report.");
 
-        // Attachment
-        MimeBodyPart attachmentPart = new MimeBodyPart();
+                "Sanity Suite Execution Completed.\n\n"
 
-        DataSource source =
-                new FileDataSource(new File(reportPath));
+              + "Please find attached:\n"
 
-        attachmentPart.setDataHandler(
-                new DataHandler(source));
+              + "1. HTML Report\n"
 
-        attachmentPart.setFileName("emailable-report.html");
+              + "2. Excel Execution Report");
 
-        // Combine Body + Attachment
-        Multipart multipart = new MimeMultipart();
+        // =========================
+        // HTML Attachment
+        // =========================
 
-        multipart.addBodyPart(messageBodyPart);
+        MimeBodyPart htmlAttachment =
+                new MimeBodyPart();
 
-        multipart.addBodyPart(attachmentPart);
+        DataSource htmlSource =
+
+                new FileDataSource(
+                        new File(htmlReportPath));
+
+        htmlAttachment.setDataHandler(
+                new DataHandler(htmlSource));
+
+        htmlAttachment.setFileName(
+                "emailable-report.html");
+
+        // =========================
+        // Excel Attachment
+        // =========================
+
+        MimeBodyPart excelAttachment =
+                new MimeBodyPart();
+
+        DataSource excelSource =
+
+                new FileDataSource(
+                        new File(excelReportPath));
+
+        excelAttachment.setDataHandler(
+                new DataHandler(excelSource));
+
+        excelAttachment.setFileName(
+                "SanityReport.xlsx");
+
+        // =========================
+        // Combine Everything
+        // =========================
+
+        Multipart multipart =
+                new MimeMultipart();
+
+        multipart.addBodyPart(
+                messageBodyPart);
+
+        multipart.addBodyPart(
+                htmlAttachment);
+
+        multipart.addBodyPart(
+                excelAttachment);
 
         message.setContent(multipart);
 
-        // Send Email
+        // =========================
+        // Send Mail
+        // =========================
+
         Transport.send(message);
 
-        System.out.println("Email Sent Successfully");
+        System.out.println(
+                "Email Sent Successfully");
     }
 }

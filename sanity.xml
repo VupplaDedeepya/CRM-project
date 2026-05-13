@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="sanity suite">
+<listeners>
+    <listener class-name="listeners.TestListener"/>
+</listeners>
 <test name="sanity tests">
 <groups>
 <run>
@@ -8,14 +11,15 @@
 </run>
 </groups>
 <classes>
-<class name="tests.userOnboarding.SignupTest"/>
+<!--<class name="tests.userOnboarding.SignupTest"/>
 <class name="tests.userOnboarding.LoginTest"/>
 <class name="tests.leads.CreateLeadTest"/>
 <class name="tests.leads.CreateViewTest"/>
 <class name="tests.leads.NotesTest"/>
 <class name="tests.leads.TaskTest"/>
 <class name="tests.leads.MeetingTest"/>
-<class name="tests.leads.EmailTest"/>
+<class name="tests.leads.EmailTest"/>-->
+<class name="tests.sanity.sanityTest"/>
 </classes>
 </test>
 

@@ -8,14 +8,14 @@ import pages.userOnboarding.LoginPage;
 import pages.userOnboarding.chooseWorkPlacePage;
 
 public class EmailTest extends BaseTest{
-	
+	@Test(priority=1,description="login")
     	public   void login() throws InterruptedException {
 		  LoginPage lp = new LoginPage(driver);
 		  lp.login();
 		  chooseWorkPlacePage cws = new chooseWorkPlacePage(driver);
 		  cws.ClickNext();
 	  }
-	  @Test(priority=1,groups= {"sanity"})
+	  @Test(priority=2,groups= {"sanity"})
 	 public void email() throws InterruptedException {
 		  login();
 		  EmailPage ep = new EmailPage(driver);

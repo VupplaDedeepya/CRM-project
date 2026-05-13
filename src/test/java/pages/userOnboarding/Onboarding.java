@@ -112,5 +112,6 @@ public class Onboarding extends BasePage{
 	   pause();
 	   click(invite_btn);
 	   pause();
+	  
    }
 }

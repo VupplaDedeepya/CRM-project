@@ -45,7 +45,7 @@ public class NotesPage extends BasePage{
 	By delete_comment = By.xpath("//button[.//span[normalize-space()='Delete']]");
     //Action methods
     public void selectLead() {
-    	WebElement Lead = getLeadRowData("LEAD-3939","Ms Schulist");
+    	WebElement Lead = getLeadRowData("LEAD-4644","Ms Considine");
     	Lead.click();
     	pause();
     }
