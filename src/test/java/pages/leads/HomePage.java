@@ -80,7 +80,7 @@ public class HomePage extends BasePage {
 	   	click(add_view);
     	pause();
     	String name = faker.name().lastName();
-    	type(view_name,name+"'s view");
+    	type(view_name,"sai's view");
     	pause();
 	    SelectFromFilter(sel_filter,"Source");
 	    SelectFromFilter(sel_condition,"equals");

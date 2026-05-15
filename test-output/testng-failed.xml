@@ -11,16 +11,48 @@
       </run>
     </groups>
     <classes>
-      <class name="tests.sanity.sanityTest">
+      <class name="tests.leads.MeetingTest">
+        <methods>
+          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="addMeeting"/>
+        </methods>
+      </class> <!-- tests.leads.MeetingTest -->
+      <class name="tests.leads.EmailTest">
+        <methods>
+          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="email"/>
+        </methods>
+      </class> <!-- tests.leads.EmailTest -->
+      <class name="tests.leads.NotesTest">
         <methods>
           <include name="setup"/>
           <include name="tearDown"/>
           <include name="note"/>
-          <include name="createLead"/>
-          <include name="login"/>
-          <include name="createView"/>
         </methods>
-      </class> <!-- tests.sanity.sanityTest -->
+      </class> <!-- tests.leads.NotesTest -->
+      <class name="tests.leads.CreateLeadTest">
+        <methods>
+          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="createLead_WithOnlyRequiredFields"/>
+        </methods>
+      </class> <!-- tests.leads.CreateLeadTest -->
+      <class name="tests.userOnboarding.LoginTest">
+        <methods>
+          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="login"/>
+        </methods>
+      </class> <!-- tests.userOnboarding.LoginTest -->
+      <class name="tests.leads.TaskTest">
+        <methods>
+          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="addTask"/>
+        </methods>
+      </class> <!-- tests.leads.TaskTest -->
     </classes>
   </test> <!-- sanity tests(failed) -->
 </suite> <!-- Failed suite [sanity suite] -->

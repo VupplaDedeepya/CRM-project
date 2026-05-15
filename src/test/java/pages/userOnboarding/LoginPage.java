@@ -18,7 +18,7 @@ public class LoginPage extends BasePage{
     public LoginPage(WebDriver driver) {
         super(driver);
     }
-
+     
     public void login() throws InterruptedException {
         type(email,ConfigReader.get("username"));
         type(password,ConfigReader.get("password")); 

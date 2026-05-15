@@ -15,11 +15,16 @@ public class MeetingTest extends BaseTest{
 	  chooseWorkPlacePage cws = new chooseWorkPlacePage(driver);
 	  cws.ClickNext();
   }
-  @Test(priority=2,groups= {"sanity"})
-  public void addMeeting() throws InterruptedException {
-	  login();
+  @Test(priority=2)
+  public void lead() {
 	  MeetingPage mp = new MeetingPage(driver);
-	  mp.selectLead();
+	  mp.selectLead(); 
+  }
+  @Test(priority=3,groups= {"sanity"})
+  public void addMeeting() throws InterruptedException {
+	 // login();
+	  MeetingPage mp = new MeetingPage(driver);
+	 // mp.selectLead();
 	  mp.navigate_meetingTab();
 	  mp.Add_Meeting();
 	  //mp.Log_meeting();

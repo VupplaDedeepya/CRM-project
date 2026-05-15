@@ -15,11 +15,16 @@ public class EmailTest extends BaseTest{
 		  chooseWorkPlacePage cws = new chooseWorkPlacePage(driver);
 		  cws.ClickNext();
 	  }
-	  @Test(priority=2,groups= {"sanity"})
-	 public void email() throws InterruptedException {
-		  login();
+	@Test(priority=2)
+	  public void lead() {
 		  EmailPage ep = new EmailPage(driver);
 		  ep.selectLead();
+	}
+	  @Test(priority=3,groups= {"sanity"})
+	 public void email() throws InterruptedException {
+		 // login();
+		  EmailPage ep = new EmailPage(driver);
+		 // ep.selectLead();
 		  ep.click_email_tab();
 		  //ep.compose_draft();  
 		 // ep.compose_schedule_send();

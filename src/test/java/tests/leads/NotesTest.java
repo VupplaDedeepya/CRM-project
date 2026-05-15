@@ -13,11 +13,11 @@ public class NotesTest extends BaseTest{
 	  LoginPage lp = new LoginPage(driver);
 	  lp.login();
 	  chooseWorkPlacePage cws = new chooseWorkPlacePage(driver);
-	  cws.ClickNext();
+	 // cws.ClickNext();
   }
   @Test(priority=2,groups= {"sanity"})
   public void note() throws InterruptedException {
-	  login();
+	 // login();
 	  NotesPage np = new NotesPage(driver);
 	  np.selectLead();
 	  np.note_tab();

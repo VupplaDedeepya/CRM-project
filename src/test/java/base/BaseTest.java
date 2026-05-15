@@ -17,21 +17,21 @@ import utils.ExcelReportGenerator;
 import utils.SendMail;
 
 public class BaseTest {
-    protected WebDriver driver;
+    protected static WebDriver driver;
 
-    @BeforeClass(alwaysRun = true)
+    @BeforeSuite(alwaysRun = true)
     public void setup() throws InterruptedException {
     	ChromeOptions options = new ChromeOptions();
     	options.addArguments("--force-device-scale-factor=0.95");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
      //   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get(ConfigReader.get("url2"));	
+        driver.get(ConfigReader.get("url"));	
     }
     
     
    
-    @AfterClass(alwaysRun = true)
+    @AfterSuite(alwaysRun = true)
     public void tearDown() {
         if (driver != null) {
             driver.quit();

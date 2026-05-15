@@ -100,4 +100,5 @@ public class BasePage {
 	  return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
   }
   
+  
 }

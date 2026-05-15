@@ -15,11 +15,16 @@ public class TaskTest extends BaseTest{
 	  chooseWorkPlacePage cws = new chooseWorkPlacePage(driver);
 	  cws.ClickNext();
   }
-  @Test(priority=2,groups= {"sanity"})
-  public void addTask() throws InterruptedException {
-	  login();
+  @Test(priority=2)
+  public void lead() {
 	  TaskPage tp = new TaskPage(driver);
 	  tp.selectLead();
+  }
+  @Test(priority=3,groups= {"sanity"})
+  public void addTask() throws InterruptedException {
+	  //login();
+	  TaskPage tp = new TaskPage(driver);
+	 // tp.selectLead();
 	  tp.task_tab();
 	  tp.add_task();
 	  //tp.edit_task();

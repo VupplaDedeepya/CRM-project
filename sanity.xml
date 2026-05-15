@@ -11,15 +11,15 @@
 </run>
 </groups>
 <classes>
-<!--<class name="tests.userOnboarding.SignupTest"/>
+<!--<class name="tests.userOnboarding.SignupTest"/>-->
 <class name="tests.userOnboarding.LoginTest"/>
 <class name="tests.leads.CreateLeadTest"/>
-<class name="tests.leads.CreateViewTest"/>
+<!--<class name="tests.leads.CreateViewTest"/>-->
 <class name="tests.leads.NotesTest"/>
 <class name="tests.leads.TaskTest"/>
 <class name="tests.leads.MeetingTest"/>
-<class name="tests.leads.EmailTest"/>-->
-<class name="tests.sanity.sanityTest"/>
+<class name="tests.leads.EmailTest"/>
+<!--<class name="tests.sanity.sanityTest"/>-->
 </classes>
 </test>
 
