@@ -15,6 +15,7 @@ public class EmailPage extends BasePage{
     	 super(driver);
      }
      //locators
+     By lead = By.xpath("//tbody//tr[1]//td[2]//a");
      By email_tab = By.xpath("(//span[normalize-space()='Email'])[2]");
      By compose_btn = By.xpath("//button[normalize-space()='Compose']");
      By To = By.xpath("//input[@placeholder='Enter recipient email and press Enter']");
@@ -29,9 +30,12 @@ public class EmailPage extends BasePage{
      
      
      //action methods
-     public void selectLead() {
+     public void selectLead() throws InterruptedException {
+    	/*
      	WebElement Lead = getLeadRowData("LEAD-4644","Ms Considine");
      	Lead.click();
+     	*/
+    	click(lead);
      	pause();
      }
      public void click_email_tab() throws InterruptedException {

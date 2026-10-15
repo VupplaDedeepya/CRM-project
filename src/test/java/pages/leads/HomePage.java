@@ -20,6 +20,7 @@ public class HomePage extends BasePage {
   }
 		
   //locators
+  By leads_tab = By.xpath("//button[@title='Leads']");
   By create_lead_button = By.xpath("//button[.//div[normalize-space()='Create Lead']]");
   By add_view = By.xpath("//div[@id='add-view-button']");
   By view_name = By.xpath("//label[normalize-space()='View Name']//following-sibling::input");

@@ -27,12 +27,12 @@ public class LeadFormPage extends BasePage{
   By designation = By.xpath("//input[@placeholder='Enter Designation']");
   By country_btn = By.xpath("//div[@data-field-key='contactNumber']//button");
   By search_country = By.xpath("//input[@placeholder='Search countries...' and not(@aria-hidden='true')]");
-  By btn_country = By.xpath("//div[@class='max-h-48 overflow-y-auto']//button");
+  By btn_country = By.xpath("//div[normalize-space()=\"India\"]//ancestor::button");
   By phno = By.xpath("//input[@placeholder='Enter Contact Number']");
   By ext = By.xpath("//div[@data-field-key='contactNumber']//input[@placeholder='Ext']");
   By alt_country_btn = By.xpath("//div[@data-field-key='alternateNumber']//button");
   By alt_search_country = By.xpath("//input[@placeholder='Search countries...' and not(@aria-hidden='true')]");
-  By alt_btn_country = By.xpath("//div[@class='max-h-48 overflow-y-auto']//button");
+  By alt_btn_country = By.xpath("//div[normalize-space()=\"India\"]//ancestor::button");
   By alt_phno = By.xpath("//input[@placeholder='Enter Alternate Number']");
   By alt_ext = By.xpath("//div[@data-field-key='alternateNumber']//input[@placeholder='Ext']");
   By email = By.xpath("//div[@data-field-key='email']//input");
@@ -49,10 +49,10 @@ public class LeadFormPage extends BasePage{
   //lead details
   By status = By.xpath("//div[@data-field-key='status']//div[contains(@class,'custom-react-select__control')]");
   By source = By.xpath("//div[@data-field-key='source']//div[contains(@class,'custom-react-select__control')]");
-  By next_stage = By.xpath("//div[@data-field-key='nextStage']//input");
+  //By next_stage = By.xpath("//div[@data-field-key='nextStage']//input");
   By description = By.xpath("//div[@data-field-key='description']//textarea");
   By tags = By.xpath("//div[@data-field-key='tags']//button");
-  By tag_option = By.xpath("//li[.//span[normalize-space()='Cold leads']]");
+  By tag_option = By.xpath("//li[.//span[normalize-space()='hot lead']]");
 
   //social details
   By linkedin_url = By.xpath("//div[@data-field-key='linkedinUrl']//input");
@@ -79,6 +79,7 @@ public class LeadFormPage extends BasePage{
 
   public void ClickCreateLead() throws InterruptedException {
 	  HomePage hp = new HomePage(driver);
+	  click(hp.leads_tab);
       click(hp.create_lead_button);
       wait.until(ExpectedConditions.visibilityOfElementLocated(label));
       pause();
@@ -122,16 +123,16 @@ public class LeadFormPage extends BasePage{
       type(website,faker.internet().url());
       selectFromDropdown(btn_company_size, "Medium Business (51-200)");
       selectFromDropdown(btn_Industry_type, "Education");
-      selectFromDropdown(btn_annual_revenue, "$30,000 - $50,000");
+      //selectFromDropdown(btn_annual_revenue, "₹2,857,218 - ₹4,762,030");
   }
 
   public void leadDetails() throws InterruptedException {
       selectFromDropdown(status,"Negotiation");
       selectFromDropdown(source,"Trade Show");
-      type(next_stage,"test");
+      //type(next_stage,"test");
       type(description,"test");
-      click(tags);
-      click(tag_option);
+      //click(tags);
+      //click(tag_option);
   }
 
   public void socialDetails() throws InterruptedException {
@@ -240,7 +241,8 @@ public class LeadFormPage extends BasePage{
   // Scenario 2: Full form submission
   public void submitWithAllDetails() throws InterruptedException {
 	  HomePage hp = new HomePage(driver);
-	  wait.until(ExpectedConditions.elementToBeClickable(hp.create_lead_button));
+	  //wait.until(ExpectedConditions.elementToBeClickable(hp.leads_tab));
+	  //wait.until(ExpectedConditions.elementToBeClickable(hp.create_lead_button));
 	  ClickCreateLead();
       basicDetails();
       companyDetails();

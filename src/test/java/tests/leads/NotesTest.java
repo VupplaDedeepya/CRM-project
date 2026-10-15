@@ -13,7 +13,7 @@ public class NotesTest extends BaseTest{
 	  LoginPage lp = new LoginPage(driver);
 	  lp.login();
 	  chooseWorkPlacePage cws = new chooseWorkPlacePage(driver);
-	 // cws.ClickNext();
+	  cws.ClickNext();
   }
   @Test(priority=2,groups= {"sanity"})
   public void note() throws InterruptedException {
@@ -23,7 +23,7 @@ public class NotesTest extends BaseTest{
 	  np.note_tab();
 	  np.Add_note("Schedule a meeting with Lead");
 	  np.choose_alignment("Align Left");
-	  np.select_dateAndtime("25", "10","45", "AM");
+	  np.select_dateAndtime("23", "10","45", "AM");
 	  np.submit();
 	 /* np.edit_note();
 	  np.add_comment();

@@ -16,7 +16,7 @@ public class TaskTest extends BaseTest{
 	  cws.ClickNext();
   }
   @Test(priority=2)
-  public void lead() {
+  public void lead() throws InterruptedException {
 	  TaskPage tp = new TaskPage(driver);
 	  tp.selectLead();
   }

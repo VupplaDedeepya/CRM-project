@@ -15,6 +15,7 @@ public class TaskPage extends BasePage{
 	   super(driver);
    }
    //locators
+   By lead = By.xpath("//tbody//tr[1]//td[2]//a");
    By Task_tab = By.xpath("//button[contains(@class,'cursor-pointer')]//span[normalize-space()='Task']");
    By add_task = By.xpath("//button[normalize-space()='Add']");
    By task_name = By.xpath("//input[@id='task-title']");
@@ -26,9 +27,9 @@ public class TaskPage extends BasePage{
    By due_date = By.xpath("//button[normalize-space()='17']");
    By due_time = By.xpath("//input[@placeholder='Time']");
    By assignedTo_dd = By.xpath("//label[contains(text(),'Assigned To ')]/following-sibling::div//button");
-   By assignedTo_opt = By.xpath("//li[contains(text(),'saipavan')]");
+   By assignedTo_opt = By.xpath("//ul[contains(@class,'custom-select-scrollbar')]//li[1]");
    By contributors_dd = By.xpath("//button[.//span[contains(text(),'Select contributors')]]");
-   By contributors_opt = By.xpath("//span[normalize-space()='Saikumarballa']");
+   By contributors_opt = By.xpath("//div[@id='custom-multiselect-dropdown']//li[1]");
    By task_description = By.xpath("//textarea[@id='task-description']");
    By submit_btn = By.xpath("//button[normalize-space()='Submit']");
    By edit_task_description_btn = By.xpath("//button[contains(@aria-label,'Edit task description')]");
@@ -49,9 +50,12 @@ public class TaskPage extends BasePage{
 	   pause();
    }
    //actions method
-   public void selectLead() {
-   	WebElement Lead = getLeadRowData("LEAD-4644","Ms Considine");
+   public void selectLead() throws InterruptedException {
+	/*
+   	WebElement Lead = getLeadRowData("LEAD-0619","Mr Vicky");
    	Lead.click();
+   	*/
+	click(lead);
    	pause();
    }	
    public void task_tab() throws InterruptedException {

@@ -16,7 +16,7 @@ public class MeetingTest extends BaseTest{
 	  cws.ClickNext();
   }
   @Test(priority=2)
-  public void lead() {
+  public void lead() throws InterruptedException {
 	  MeetingPage mp = new MeetingPage(driver);
 	  mp.selectLead(); 
   }
@@ -26,8 +26,8 @@ public class MeetingTest extends BaseTest{
 	  MeetingPage mp = new MeetingPage(driver);
 	 // mp.selectLead();
 	  mp.navigate_meetingTab();
-	  mp.Add_Meeting();
-	  //mp.Log_meeting();
+	  //mp.Add_Meeting();
+	  mp.Log_meeting();
 	 // mp.edit_meeting("05/12/2026");
 	  //mp.delete_meeting();
   }

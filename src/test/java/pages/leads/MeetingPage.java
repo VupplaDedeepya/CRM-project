@@ -26,11 +26,12 @@ public class MeetingPage extends BasePage{
 	  super(driver);
   }
   //locators
+  By lead = By.xpath("//tbody//tr[1]//td[2]//a");
   By Meetings_tab = By.xpath("//span[normalize-space()='Meetings']");
   By Log_meeting_btn = By.xpath("//button[.//div[normalize-space()='Log Meeting']]");
   By Meeting_title = By.xpath("//input[@id='meeting-title']");
   By participants_dd = By.xpath("//label[@for='meeting-participants']/following-sibling::div//div[contains(@class,'cursor-pointer')]");
-  By participants_opt = By.xpath("//span[normalize-space()='sai (sai@yopmail.com)']/preceding-sibling::button");
+  By participants_opt = By.xpath("//div[@data-participants-dropdown='true']//child::div[2]//child::div[2]//child::div[2]//button");
   By Meeting_location = By.xpath("//input[@id='meeting-location']");
   By Meeting_description = By.xpath("//p[@data-placeholder='Enter meeting description...']");
   By date_dd = By.xpath("//button[contains(text(),'In 3 business days')]");
@@ -42,7 +43,7 @@ public class MeetingPage extends BasePage{
   Faker faker = new Faker();
   //add meeting locators
   By Add_meeting_btn = By.xpath("//button[normalize-space()='Add']");
-  By meetingTitle = By.xpath("//input[@placeholder='Enter event title']");
+  By meetingTitle = By.xpath("//label[normalize-space()=\"Meeting Title *\"]//following-sibling::input");
   By attendees = By.xpath("//input[@placeholder='Enter email and press Enter']");
   By start_date = By.xpath("(//img[@alt='Calendar'])[3]");
   By dd = By.xpath("//button[normalize-space()='30']");
@@ -79,9 +80,11 @@ public class MeetingPage extends BasePage{
 	  pause();
   }
   //Action methods
-  public void selectLead() {
-  	WebElement Lead = getLeadRowData("LEAD-4644","Ms Considine");
+  public void selectLead() throws InterruptedException {
+  	/*WebElement Lead = getLeadRowData("LEAD-0619","Mr Vicky");
   	wait.until(ExpectedConditions.elementToBeClickable(Lead)).click();
+  	*/
+	click(lead);
   	pause();
   }
   public void navigate_meetingTab() throws InterruptedException {

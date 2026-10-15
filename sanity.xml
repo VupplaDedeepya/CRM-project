@@ -19,7 +19,6 @@
 <class name="tests.leads.TaskTest"/>
 <class name="tests.leads.MeetingTest"/>
 <class name="tests.leads.EmailTest"/>
-<!--<class name="tests.sanity.sanityTest"/>-->
 </classes>
 </test>
 

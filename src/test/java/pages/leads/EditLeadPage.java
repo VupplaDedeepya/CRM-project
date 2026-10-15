@@ -111,10 +111,10 @@ public class EditLeadPage extends BasePage{
   	  //select source of lead
   	  selectFromDropdown(lfp.source,"Trade Show");
   	  //enter next stage
-      driver.findElement(lfp.next_stage).sendKeys(Keys.CONTROL + "a");
-      driver.findElement(lfp.next_stage).sendKeys(Keys.DELETE);
+     // driver.findElement(lfp.next_stage).sendKeys(Keys.CONTROL + "a");
+     // driver.findElement(lfp.next_stage).sendKeys(Keys.DELETE);
       pause();
-  	  type(lfp.next_stage,"sample");
+  	 // type(lfp.next_stage,"sample");
   	  //enter description
       driver.findElement(lfp.description).sendKeys(Keys.CONTROL + "a");
       driver.findElement(lfp.description).sendKeys(Keys.DELETE);

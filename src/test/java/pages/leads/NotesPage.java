@@ -16,6 +16,7 @@ public class NotesPage extends BasePage{
 		super(driver);
 	}
 	//locators
+	  By lead = By.xpath("//tbody//tr[1]//td[2]//a");
     By Note_tab = By.xpath("//button[contains(@class,'cursor-pointer')]//span[normalize-space()='Notes']");
     By add_note_btn = By.xpath("//button//div[normalize-space()='Add']");
 	By note_description = By.xpath("//p[@data-placeholder='Add an internal note...']");
@@ -44,9 +45,11 @@ public class NotesPage extends BasePage{
 	By comment_more_actions = By.xpath("(//button[.//img[@alt='More']])[1]");
 	By delete_comment = By.xpath("//button[.//span[normalize-space()='Delete']]");
     //Action methods
-    public void selectLead() {
-    	WebElement Lead = getLeadRowData("LEAD-4644","Ms Considine");
+    public void selectLead() throws InterruptedException {
+    	/*WebElement Lead = getLeadRowData("LEAD-0619","Mr Vicky");
     	Lead.click();
+    	*/
+    	click(lead);
     	pause();
     }
     public void note_tab() {

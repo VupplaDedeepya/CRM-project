@@ -16,7 +16,7 @@ public class EmailTest extends BaseTest{
 		  cws.ClickNext();
 	  }
 	@Test(priority=2)
-	  public void lead() {
+	  public void lead() throws InterruptedException {
 		  EmailPage ep = new EmailPage(driver);
 		  ep.selectLead();
 	}

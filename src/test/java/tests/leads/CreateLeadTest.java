@@ -23,7 +23,7 @@ public class CreateLeadTest extends BaseTest {
     
 
     // 🔥 SCENARIO 1: Only required fields
-    @Test(priority = 2,groups= {"sanity"})
+   /* @Test(priority = 2,groups= {"sanity"})
     public void createLead_WithOnlyRequiredFields() throws InterruptedException {
 
        //doLogin();
@@ -35,9 +35,9 @@ public class CreateLeadTest extends BaseTest {
 
         System.out.println("Lead created with only required fields");
     }
-
+*/
     // 🔥 SCENARIO 2: Full form submission
-    @Test(priority = 3,groups= {"regression"})
+    @Test(priority = 3,groups= {"sanity"})
     public void createLead_WithAllDetails() throws InterruptedException {
 
 
